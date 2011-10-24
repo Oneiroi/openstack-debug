@@ -31,8 +31,8 @@ def main():
     if novaConf and novaLog:
         novaSTR = "===== nova.conf =====\n%s\n\n===== nova.log =====\n%s\n\n" % (novaConf,novaLog)
         s = ServerProxy('http://paste.openstack.org/xmlrpc/')
-        id = s.pastes.newPaste(None,'',parent_id=None,filename='',mimetype='text/plain',private=False)
-        print id
+        id = s.pastes.newPaste('en',novaSTR)
+        print 'http://paste.openstack.org/show/%s/' % id
     else:
         print 'Some required data was missing I will not push to paste.openstack.org'
         
