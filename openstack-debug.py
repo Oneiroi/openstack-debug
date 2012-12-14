@@ -68,7 +68,9 @@ def main():
           f.seek(s - log_buff_size)
           for line in f:
             buff += line
-        novaSTR += buff
+          novaSTR += buff
+        else:
+          novaSTR += f.read()
       except OSError, e:
          novaSTR += "OSError %s" %e
 
